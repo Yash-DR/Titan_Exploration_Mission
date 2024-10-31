@@ -12,7 +12,6 @@ def left_heading(heading):
     else:
         new_heading = 'n'
 
-    print(new_heading)
     return new_heading
 
 def right_heading(heading):
@@ -28,5 +27,4 @@ def right_heading(heading):
     else:
         new_heading = 'n'
 
-    print(new_heading)
     return new_heading
