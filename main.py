@@ -9,36 +9,49 @@ The position is made up of 2 letters and a letter separated by spaces"""
 from heading import left_heading, right_heading
 from movement import new_coordinates
 
-
+num_of_robots = input("Enter the number of Robots - ")
 xy = input("Upper right co-ordinates - ")
-x_ord = None
-y_ord = None
+x_ord = []
+y_ord = []
+heading = []
+exploration_values = []
+x_ord_max = None
+y_ord_max = None
+
 if len(xy) == 2:
-    lower_left_ord = [0,0]
+    lower_left_ord = [0, 0]
     upper_right_ord = [xy[0], xy[1]]
     x_ord_max = xy[0]
     y_ord_max = xy[1]
 
-    co_ordinates = input("Enter the co-ordinates of the robot - ")
-    if len(co_ordinates) == 3:
-        x_ord = co_ordinates[0]
-        y_ord = co_ordinates[1]
-        heading = co_ordinates[2]
+    for i in range(int(num_of_robots)):
+        co_ordinates = input(f"Enter the co-ordinates of the Robot-{i+1} - ")
+        if len(co_ordinates) == 3:
+            x_ord.append(co_ordinates[0])
+            y_ord.append(co_ordinates[1])
+            heading.append(co_ordinates[2])
 
-        exploration_values = input("Enter the instructions to explore the plateau - ")
+            navigation = input("Enter the instructions to explore the plateau - ")
+            exploration_values.append(navigation)
 
-        for i in exploration_values:
-            if i.lower() == 'l':
-               heading = left_heading(heading)
-            elif i.lower() == 'r':
-                heading = right_heading(heading)
-            elif i.lower() == 'm':
-                x_ord, y_ord = new_coordinates(x_ord_max, y_ord_max, x_ord, y_ord, heading)
-
-        print(f"New co-ordinates are {x_ord}{y_ord}{heading.upper()}")
-
-    else:
-        print("Invalid Robot co-ordinates")
+        else:
+            print("Invalid Robot co-ordinates")
 
 else:
     print("invalid co-ordinates")
+
+for j in range(int(num_of_robots)):
+    try:
+            for i in exploration_values[j]:
+                if i.lower() == 'l':
+                    heading[j] = left_heading(heading[j])
+                elif i.lower() == 'r':
+                    heading[j] = right_heading(heading[j])
+                elif i.lower() == 'm':
+                    x_ord[j], y_ord[j] = new_coordinates(x_ord_max, y_ord_max, x_ord[j], y_ord[j], heading[j])
+
+            print(f"New co-ordinates for Robot-{j+1} is {x_ord[j]}{y_ord[j]}{heading[j].upper()}")
+
+    except:
+        print(f"Cannot find the co-ordinates for Robot-{j+1} due to incorrect inputs")
+

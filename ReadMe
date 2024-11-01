@@ -1,0 +1,11 @@
+Run the main.py file
+
+Assumption made is not knowing the number of robots to survey
+So the first input will be right co-ordinate of the plateau
+Second input is the number of robots
+Third inputs onwars its as like in the problem statement, the current co-ordinates
+the next input will have the movement
+
+First enter the input of the first robot and then move on to the other robots based on the number of robots
+s
+
