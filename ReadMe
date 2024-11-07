@@ -1,21 +1,18 @@
-Run the main.py file
+Running the code:
+    - Open the main.py file
+    - Click on run button
 
-Assumption made is not knowing the number of robots to survey
-So the first input will be right co-ordinate of the plateau
-Second input is the number of robots
-Third inputs onwards its as like in the problem statement, the current co-ordinates
-the next input will have the movement
+Assumption:
+    - The grid area is defined by the input size
+    - The next robot only starts after the first robot has completed all the movements
 
-First enter the input of the first robot and then move on to the other robots based on the number of robots
+Testing:
+     - Initial testing is done for the given input.
+     - Additional testing is done by taking other initial coordinates and commands
+     - Create similar test cases to verify the same
 
-There are 3 files
-heading.py file is used to calculate the heading of the robot based on the navigation instruction
-movement.py file is used to calculate the new co-ordinate of the robot based on the navigation instruction
-main.py is the file which imports both heading and movement files and their functions. It imports the function and call them based on the input.
-
-The problem can be divided into 3 main steps
-1st would be to gather the inputs and organize them.
-2nd would be to read the navigation accurately based on the inputs i.e calculating the heading and co-ordinate.
-3rd would be to gather the output new co-ordinates for each robot.
-
-The problem can also be approached by using other inbuilt methods but dividing it different parts would be better to understand and having different files for their particular task would be easy to edit or make changes if required in the future without effecting the main body.
+Structure:
+    - The main.py file is the main file that has to be run.
+    - There are 2 different directories.
+        - Grid has python files pertaining to the position of the robot.
+        - Navigation has python files related to the direction and movement of the robot.
