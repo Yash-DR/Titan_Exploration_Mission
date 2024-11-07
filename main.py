@@ -23,7 +23,9 @@ def main():
         if position:
             index = robot_initial_coordinate.index(coordinate)
             # Get the new coordinates of the robot
-            Navigation(coordinate, robot_commands[index]).new_coordinates()
+            robot_final_coordinate = Navigation(coordinate, robot_commands[index]).new_coordinates()
+
+            print(robot_final_coordinate)
 
 
 if __name__ == "__main__":

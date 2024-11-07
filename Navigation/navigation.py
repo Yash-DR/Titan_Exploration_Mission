@@ -28,4 +28,7 @@ class Navigation:
             elif command == 'M':
                 x_coord, y_coord = RobotMovement(x_coord, y_coord, header).new_robot_position()
 
-        print(x_coord, y_coord)
+        # Updating the final coordinates and header for the robot after executing the command
+        new_coord = (x_coord, y_coord, header)
+
+        return new_coord
