@@ -1,4 +1,5 @@
 from Navigation.heading import Header
+from Navigation.robot_movement import RobotMovement
 
 
 class Navigation:
@@ -15,10 +16,16 @@ class Navigation:
         new_coord = (x_coord, y_coord, header)
 
         for command in self.robot_command:
+            # Get the new direction of the robot if the command is Left
             if command == 'L':
                 header = Header(header).left_new_heading()
 
+            # Get the new direction of the robot if the command is Right
             elif command == 'R':
                 header = Header(header).right_new_heading()
 
-        print(header)
+            # Get the new position of the robot along x and y coordinates if the command is 'M' or Movement
+            elif command == 'M':
+                x_coord, y_coord = RobotMovement(x_coord, y_coord, header).new_robot_position()
+
+        print(x_coord, y_coord)

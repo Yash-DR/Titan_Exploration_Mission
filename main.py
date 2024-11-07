@@ -22,6 +22,7 @@ def main():
         position = GridBoundary(total_grid_size).coordinate_position(coordinate)
         if position:
             index = robot_initial_coordinate.index(coordinate)
+            # Get the new coordinates of the robot
             Navigation(coordinate, robot_commands[index]).new_coordinates()
 
 
