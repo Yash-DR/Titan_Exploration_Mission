@@ -8,6 +8,7 @@ The position is made up of 2 letters and a letter separated by spaces"""
 
 
 from Grid.grid import GridBoundary
+from Navigation.navigation import Navigation
 
 
 def main():
@@ -20,9 +21,8 @@ def main():
     for coordinate in robot_initial_coordinate:
         position = GridBoundary(total_grid_size).coordinate_position(coordinate)
         if position:
-            print(position)
-
-
+            index = robot_initial_coordinate.index(coordinate)
+            Navigation(coordinate, robot_commands[index]).new_coordinates()
 
 
 if __name__ == "__main__":

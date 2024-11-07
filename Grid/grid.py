@@ -8,7 +8,6 @@ class GridBoundary:
 
 
     def coordinate_position(self, initial_coordinate):
-        print(initial_coordinate)
         if self.x_min <= int(initial_coordinate[0]) <= self.x_max and self.y_min <= int(initial_coordinate[1]) <= self.y_max:
             return True
         else:
